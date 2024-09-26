@@ -1,14 +1,9 @@
-// ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
-
-// キャッシュ名とキャッシュファイルの指定
-var CACHE_NAME = 'pwa-sample-caches';
+var CACHE_NAME = 'pwasample';
 var urlsToCache = [
-    '/pwa/',
-    '/pwa/css/style.css',
-    '/pwa/drawer.js'
+    '/apps/pwa/',
+    '/apps/pwa/index.html'
 ];
 
-// インストール処理
 self.addEventListener('install', function(event) {
     event.waitUntil(
         caches
@@ -19,7 +14,6 @@ self.addEventListener('install', function(event) {
     );
 });
 
-// リソースフェッチ時のキャッシュロード処理
 self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches
